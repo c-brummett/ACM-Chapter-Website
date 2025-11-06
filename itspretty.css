@@ -1,0 +1,232 @@
+:root {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ========== BASE STYLES ========== */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* ========== HERO SECTION ========== */
+#home {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Video Background */
+video, .video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Optional background fallback image */
+.background-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Binary grid animation layer */
+#binarygrid-canvas,
+#my-canvas-element {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
+
+/* Overlay gradient (BLACK) */
+.black-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.4) 100%);
+  z-index: 2;
+}
+
+/* Foreground content */
+.content, .hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 2rem 1.5rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ========== HERO TEXT STYLES ========== */
+.hero-subtitle {
+  font-size: 5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-department {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  max-width: 900px;
+  margin: 9.5rem 0 9rem;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.hero-tagline {
+  font-size: 1.125rem;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+/* ========== BUTTONS ========== */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.rvt-button--crimson {
+  background-color: #990000;
+  color: white;
+  border: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+.rvt-button--crimson:hover {
+  background-color: rgba(0, 98, 152, 1);
+  color: white;
+}
+
+.rvt-button--outline-white {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+.rvt-button--outline-white:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+/* ========== GALLERY ========== */
+.gallery-wrapper {
+  position: relative;
+}
+.gallery-window {
+  overflow: hidden;
+  width: 100%;
+}
+.gallery-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Arrow buttons */
+.gallery-btn {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  background: white;
+  border: 2px solid var(--rvt-color-blue-300, #ddd);
+  color: var(--rvt-color-blue-300, #333);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.gallery-btn:hover {
+  background: var(--rvt-color-black-100, #f2f2f2);
+}
+.gallery-btn--left {
+  left: -50px;
+  display: none;
+}
+.gallery-btn--right {
+  right: -90px;
+}
+
+/* ========== LIST STYLES ========== */
+.officer-bullets {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+.officer-bullets li {
+  margin-bottom: 0.25rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 640px) {
+  .button-group {
+    flex-direction: row;
+  }
+  .hero-subtitle {
+    font-size: 1.75rem;
+  }
+  .hero-department {
+    font-size: 1.25rem;
+  }
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    padding: 3rem 2rem;
+  }
+}
